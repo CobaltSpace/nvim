@@ -7,7 +7,7 @@
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -70,5 +70,19 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+vim.o.title = true -- window title
+
+vim.opt.guicursor:append 'a:blinkwait1-blinkon530-blinkoff530' -- blink cursor
+
+-- remember position in file
+vim.api.nvim_create_autocmd('BufReadPost', { command = [[ if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]] })
+
+vim.g.neovide_opacity = 0.7
+vim.g.neovide_cursor_vfx_mode = 'railgun'
+
+vim.g.gui_font_default_size = 12
+vim.g.gui_font_size = vim.g.gui_font_default_size
+vim.g.gui_font_face = 'FantasqueSansM Nerd Font'
 
 -- vim: ts=2 sts=2 sw=2 et
