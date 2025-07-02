@@ -7,7 +7,13 @@ return {
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          require('conform').format {
+            async = true,
+            lsp_format = 'fallback',
+            filter = function(client)
+              return client.name ~= "tsserver" and client.name ~= "typescript-tools"
+            end
+          }
         end,
         mode = '',
         desc = '[F]ormat buffer',
