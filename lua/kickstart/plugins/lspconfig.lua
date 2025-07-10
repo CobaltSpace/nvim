@@ -209,7 +209,7 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-      vim.lsp.enable { 'biome', 'dotls' }
+      vim.lsp.enable { 'biome', 'dotls', 'clangd' }
 
       for server, config in pairs {
         -- clangd = {},
